@@ -1,7 +1,31 @@
-@(message: String)
+@(surveys: List[Survey], surveyForm: Form[Survey])
 
-@main("Welcome to Play 2.0") {
+@import helper._
+
+@main("Survey list") {
     
-    @play20.welcome(message, style = "Java")
+  <h1>@surveys.size() survey(s)</h1>
     
+  <ul>
+    @for(survey <- surveys) {
+      <li>
+        @survey.label
+    
+        @form(routes.Application.deleteSurvey(survey.id)) {
+          <input type="submit" value="Delete">
+        }
+      </li>
+    }
+  </ul>
+  
+  <h2>Add a new survey</h2>
+    
+  @form(routes.Application.newSurvey()) {
+        
+    @inputText(surveyForm("label")) 
+        
+    <input type="submit" value="Create">
+        
+  }
+
 }
