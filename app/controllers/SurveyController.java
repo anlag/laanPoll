@@ -22,10 +22,12 @@ public class SurveyController extends Controller {
 
   public static Result send() {
     surveyForm = surveyForm.bindFromRequest();
-    if (sureyForm.hasErrors()) {
-      return TODO;
+    if (surveyForm.hasErrors()) {
+      Logger.info("Validation failed.");
+      Logger.info(surveyForm.errorsAsJson().toString());
+      return ok(form.render(surveyForm));
     }
-    return ok(result.render())
+    return ok(result.render());
   }
 
 }

@@ -1,6 +1,6 @@
 // @SOURCE:/home/anlag/Stuff/play/trsurvey/conf/routes
-// @HASH:f62c3eafc8d918706799a40543406d5d3212343b
-// @DATE:Fri Nov 16 19:14:11 CET 2012
+// @HASH:249cd3a9b86f6c239b181b49edd9c511a2ef9d07
+// @DATE:Fri Nov 16 20:29:06 CET 2012
 
 import play.core._
 import play.core.Router._
@@ -18,10 +18,14 @@ object Routes extends Router.Routes {
 val controllers_SurveyController_index0 = Route("GET", PathPattern(List(StaticPart("/"))))
                     
 
-// @LINE:13
-val controllers_Assets_at1 = Route("GET", PathPattern(List(StaticPart("/assets/"),DynamicPart("file", """.+"""))))
+// @LINE:7
+val controllers_SurveyController_send1 = Route("POST", PathPattern(List(StaticPart("/"))))
                     
-def documentation = List(("""GET""","""/""","""controllers.SurveyController.index()"""),("""GET""","""/assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""))
+
+// @LINE:14
+val controllers_Assets_at2 = Route("GET", PathPattern(List(StaticPart("/assets/"),DynamicPart("file", """.+"""))))
+                    
+def documentation = List(("""GET""","""/""","""controllers.SurveyController.index()"""),("""POST""","""/""","""controllers.SurveyController.send()"""),("""GET""","""/assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""))
              
     
 def routes:PartialFunction[RequestHeader,Handler] = {        
@@ -34,8 +38,16 @@ case controllers_SurveyController_index0(params) => {
 }
                     
 
-// @LINE:13
-case controllers_Assets_at1(params) => {
+// @LINE:7
+case controllers_SurveyController_send1(params) => {
+   call { 
+        invokeHandler(_root_.controllers.SurveyController.send(), HandlerDef(this, "controllers.SurveyController", "send", Nil))
+   }
+}
+                    
+
+// @LINE:14
+case controllers_Assets_at2(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         invokeHandler(_root_.controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String])))
    }

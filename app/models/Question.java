@@ -2,11 +2,14 @@ package models;
 
 //import java.util.*;
 //import play.data.validation.Constraints.*;
+import play.data.validation.Constraints.MinLength;
 
 public class Question {
 
 //  public Long id;
   private String text;
+
+  @MinLength(1)
   private String answer;
 
   public void setText(String text) {

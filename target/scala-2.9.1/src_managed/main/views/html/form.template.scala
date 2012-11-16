@@ -34,10 +34,11 @@ Seq[Any](format.raw/*1.22*/("""
   """),_display_(Seq[Any](/*5.4*/for((question,i) <- (form.get.getQuestions.zipWithIndex)) yield /*5.61*/ {_display_(Seq[Any](format.raw/*5.63*/("""
     <p>"""),_display_(Seq[Any](/*6.9*/question/*6.17*/.getText)),format.raw/*6.25*/("""
     <input type="text" size="12" name="question["""),_display_(Seq[Any](/*7.50*/i)),format.raw/*7.51*/("""].answer" /></p> 
-    <input type="submit" value="Send" />
-  """)))})),format.raw/*9.4*/("""
+  """)))})),format.raw/*8.4*/("""
 
-""")))})),format.raw/*11.2*/("""
+  <input type="submit" value="Send" />
+
+""")))})),format.raw/*12.2*/("""
 """))}
     }
     
@@ -50,11 +51,11 @@ Seq[Any](format.raw/*1.22*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 16 20:22:22 CET 2012
+                    DATE: Fri Nov 16 21:11:21 CET 2012
                     SOURCE: /home/anlag/Stuff/play/trsurvey/app/views/form.scala.html
-                    HASH: 070c49e9b5336de2aa8be51eaa4ca6b58343901d
-                    MATRIX: 760->1|857->21|894->24|907->30|974->89|1013->91|1054->98|1126->155|1165->157|1208->166|1224->174|1253->182|1338->232|1360->233|1452->295|1486->298
-                    LINES: 27->1|30->1|32->3|32->3|32->3|32->3|34->5|34->5|34->5|35->6|35->6|35->6|36->7|36->7|38->9|40->11
+                    HASH: 1438e3f1840b68afc288fabe0993156405b139b9
+                    MATRIX: 760->1|857->21|894->24|907->30|974->89|1013->91|1054->98|1126->155|1165->157|1208->166|1224->174|1253->182|1338->232|1360->233|1411->254|1485->297
+                    LINES: 27->1|30->1|32->3|32->3|32->3|32->3|34->5|34->5|34->5|35->6|35->6|35->6|36->7|36->7|37->8|41->12
                     -- GENERATED --
                 */
             

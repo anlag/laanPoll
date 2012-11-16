@@ -8,6 +8,9 @@ public class Survey {
   // declarations
   private List<Question> questions;
 
+  // default constructor
+  public Survey() { }
+
   // methods
   public Survey(boolean test) {
     questions = new ArrayList<Question>();

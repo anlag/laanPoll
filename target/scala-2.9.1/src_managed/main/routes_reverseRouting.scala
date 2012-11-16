@@ -1,6 +1,6 @@
 // @SOURCE:/home/anlag/Stuff/play/trsurvey/conf/routes
-// @HASH:f62c3eafc8d918706799a40543406d5d3212343b
-// @DATE:Fri Nov 16 19:14:11 CET 2012
+// @HASH:249cd3a9b86f6c239b181b49edd9c511a2ef9d07
+// @DATE:Fri Nov 16 20:29:06 CET 2012
 
 import play.core._
 import play.core.Router._
@@ -12,15 +12,23 @@ import play.libs.F
 import Router.queryString
 
 
-// @LINE:13
+// @LINE:14
+// @LINE:7
 // @LINE:6
 package controllers {
 
+// @LINE:7
 // @LINE:6
 class ReverseSurveyController {
     
 
 
+ 
+// @LINE:7
+def send() = {
+   Call("POST", "/")
+}
+                                                        
  
 // @LINE:6
 def index() = {
@@ -33,13 +41,13 @@ def index() = {
 }
                             
 
-// @LINE:13
+// @LINE:14
 class ReverseAssets {
     
 
 
  
-// @LINE:13
+// @LINE:14
 def at(file:String) = {
    Call("GET", "/assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -53,15 +61,28 @@ def at(file:String) = {
                     
 
 
-// @LINE:13
+// @LINE:14
+// @LINE:7
 // @LINE:6
 package controllers.javascript {
 
+// @LINE:7
 // @LINE:6
 class ReverseSurveyController {
     
 
 
+ 
+// @LINE:7
+def send = JavascriptReverseRoute(
+   "controllers.SurveyController.send",
+   """
+      function() {
+      return _wA({method:"POST", url:"/"})
+      }
+   """
+)
+                                                        
  
 // @LINE:6
 def index = JavascriptReverseRoute(
@@ -79,13 +100,13 @@ def index = JavascriptReverseRoute(
 }
                             
 
-// @LINE:13
+// @LINE:14
 class ReverseAssets {
     
 
 
  
-// @LINE:13
+// @LINE:14
 def at = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -104,15 +125,23 @@ def at = JavascriptReverseRoute(
                     
 
 
-// @LINE:13
+// @LINE:14
+// @LINE:7
 // @LINE:6
 package controllers.ref {
 
+// @LINE:7
 // @LINE:6
 class ReverseSurveyController {
     
 
 
+ 
+// @LINE:7
+def send() = new play.api.mvc.HandlerRef(
+   controllers.SurveyController.send(), HandlerDef(this, "controllers.SurveyController", "send", Seq())
+)
+                              
  
 // @LINE:6
 def index() = new play.api.mvc.HandlerRef(
@@ -125,13 +154,13 @@ def index() = new play.api.mvc.HandlerRef(
 }
                             
 
-// @LINE:13
+// @LINE:14
 class ReverseAssets {
     
 
 
  
-// @LINE:13
+// @LINE:14
 def at(path:String, file:String) = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]))
 )
