@@ -1,0 +1,14 @@
+@(form: Form[Survey])
+
+@import helper._
+
+@(form.get.getQuestions())
+
+@helper.form(action = routes.SurveyController.send, 'id -> "form") {
+  
+  @for((question,i) <- (form.get.getQuestions.zipWithIndex)) {
+    <p>@question.getText
+    <input type="text" size="12" name="question[@i].answer"></p> 
+  }
+
+}

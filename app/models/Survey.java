@@ -6,20 +6,31 @@ import play.data.validation.Constraints.*;
 public class Survey {
 
   // declarations
-  public Long id;
-
-  @Required
-  public String label;
+  private List<Question> questions;
 
   // methods
-  public static List<Survey> all() {
-    return new ArrayList<Survey>();
+  public Survey(boolean test) {
+    questions = new ArrayList<Question>();
+
+    if (test) {
+      Question question = new Question();
+      question.setText("What's your name?");
+
+      questions.add(question);
+
+      question = new Question();
+      question.setText("How old are you?");
+
+      questions.add(question);
+    }
   }
 
-  public static void create(Survey survey) {
+  public void setQuestions(List<Question> questions) {
+    this.questions = questions;
   }
 
-  public static void delete(Long id) {
+  public List<Question> getQuestions() {
+    return this.questions;
   }
 
 }
