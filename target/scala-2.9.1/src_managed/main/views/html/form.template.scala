@@ -25,22 +25,19 @@ object form extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.te
 
     /**/
     def apply/*1.2*/(form: Form[Survey]):play.api.templates.Html = {
-        _display_ {import helper._
-
+        _display_ {
 
 Seq[Any](format.raw/*1.22*/("""
 
-"""),format.raw/*4.1*/("""
-"""),_display_(Seq[Any](/*5.2*/(form.get.getQuestions()))),format.raw/*5.27*/("""
-
-"""),_display_(Seq[Any](/*7.2*/helper/*7.8*/.form(action = routes.SurveyController.send, 'id -> "form")/*7.67*/ {_display_(Seq[Any](format.raw/*7.69*/("""
+"""),_display_(Seq[Any](/*3.2*/helper/*3.8*/.form(action = routes.SurveyController.send, 'id -> "form")/*3.67*/ {_display_(Seq[Any](format.raw/*3.69*/("""
   
-  """),_display_(Seq[Any](/*9.4*/for((question,i) <- (form.get.getQuestions.zipWithIndex)) yield /*9.61*/ {_display_(Seq[Any](format.raw/*9.63*/("""
-    <p>"""),_display_(Seq[Any](/*10.9*/question/*10.17*/.getText)),format.raw/*10.25*/("""
-    <input type="text" size="12" name="question["""),_display_(Seq[Any](/*11.50*/i)),format.raw/*11.51*/("""].answer"></p> 
-  """)))})),format.raw/*12.4*/("""
+  """),_display_(Seq[Any](/*5.4*/for((question,i) <- (form.get.getQuestions.zipWithIndex)) yield /*5.61*/ {_display_(Seq[Any](format.raw/*5.63*/("""
+    <p>"""),_display_(Seq[Any](/*6.9*/question/*6.17*/.getText)),format.raw/*6.25*/("""
+    <input type="text" size="12" name="question["""),_display_(Seq[Any](/*7.50*/i)),format.raw/*7.51*/("""].answer" /></p> 
+    <input type="submit" value="Send" />
+  """)))})),format.raw/*9.4*/("""
 
-""")))})),format.raw/*14.2*/("""
+""")))})),format.raw/*11.2*/("""
 """))}
     }
     
@@ -53,11 +50,11 @@ Seq[Any](format.raw/*1.22*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Fri Nov 16 20:05:56 CET 2012
+                    DATE: Fri Nov 16 20:22:22 CET 2012
                     SOURCE: /home/anlag/Stuff/play/trsurvey/app/views/form.scala.html
-                    HASH: 78073eedb9cc669c82b97322f6fcb2c614023b11
-                    MATRIX: 760->1|873->21|901->40|937->42|983->67|1020->70|1033->76|1100->135|1139->137|1180->144|1252->201|1291->203|1335->212|1352->220|1382->228|1468->278|1491->279|1541->298|1575->301
-                    LINES: 27->1|31->1|33->4|34->5|34->5|36->7|36->7|36->7|36->7|38->9|38->9|38->9|39->10|39->10|39->10|40->11|40->11|41->12|43->14
+                    HASH: 070c49e9b5336de2aa8be51eaa4ca6b58343901d
+                    MATRIX: 760->1|857->21|894->24|907->30|974->89|1013->91|1054->98|1126->155|1165->157|1208->166|1224->174|1253->182|1338->232|1360->233|1452->295|1486->298
+                    LINES: 27->1|30->1|32->3|32->3|32->3|32->3|34->5|34->5|34->5|35->6|35->6|35->6|36->7|36->7|38->9|40->11
                     -- GENERATED --
                 */
             

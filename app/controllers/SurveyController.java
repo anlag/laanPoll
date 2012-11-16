@@ -20,4 +20,12 @@ public class SurveyController extends Controller {
     return ok(form.render(surveyForm));
   }
 
+  public static Result send() {
+    surveyForm = surveyForm.bindFromRequest();
+    if (sureyForm.hasErrors()) {
+      return TODO;
+    }
+    return ok(result.render())
+  }
+
 }

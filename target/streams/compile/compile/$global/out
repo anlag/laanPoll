@@ -1,9 +1,7 @@
-[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/anlag/Stuff/play/trsurvey/target/scala-2.9.1/classes...[0m
-[0m[[31merror[0m] [0m/home/anlag/Stuff/play/trsurvey/target/scala-2.9.1/src_managed/main/views/html/form.template.scala:34: reference to form is ambiguous;[0m
-[0m[[31merror[0m] [0mit is both defined in method apply and imported subsequently by [0m
-[0m[[31merror[0m] [0mimport helper._[0m
-[0m[[31merror[0m] [0m"""),_display_(Seq[Any](/*5.2*/(form.get.getQuestions()))),format.raw/*5.27*/("""[0m
-[0m[[31merror[0m] [0m                                ^[0m
+[0m[[0minfo[0m] [0mCompiling 2 Scala sources and 1 Java source to /home/anlag/Stuff/play/trsurvey/target/scala-2.9.1/classes...[0m
+[0m[[31merror[0m] [0m/home/anlag/Stuff/play/trsurvey/target/scala-2.9.1/src_managed/main/views/html/form.template.scala:32: value send is not a member of controllers.ReverseSurveyController[0m
+[0m[[31merror[0m] [0m"""),_display_(Seq[Any](/*3.2*/helper/*3.8*/.form(action = routes.SurveyController.send, 'id -> "form")/*3.67*/ {_display_(Seq[Any](format.raw/*3.69*/("""[0m
+[0m[[31merror[0m] [0m                                                                                   ^[0m
 [0m[[31merror[0m] [0mone error found[0m
 Compilation failed
 	at xsbt.CompilerInterface.run(CompilerInterface.scala:93)
