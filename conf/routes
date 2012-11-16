@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                           controllers.SurveyController.index()
+POST	/							controllers.SurveyController.send()
 
 #GET     /admin                      controllers.Application.surveys()
 #POST    /admin                      controllers.Application.newSurvey()
