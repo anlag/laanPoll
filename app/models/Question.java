@@ -1,15 +1,12 @@
 package models;
 
-//import java.util.*;
-//import play.data.validation.Constraints.*;
-import play.data.validation.Constraints.MinLength;
+import play.data.validation.Constraints.*;
 
 public class Question {
-
-//  public Long id;
   private String text;
 
-  @MinLength(1)
+  @Required
+  @MinLength(5)
   private String answer;
 
   public void setText(String text) {
@@ -27,5 +24,4 @@ public class Question {
   public String getAnswer() {
     return this.answer;
   }
-
 }

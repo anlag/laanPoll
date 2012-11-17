@@ -1,12 +1,29 @@
-@(form: Form[Survey])
+@(form: Form[Survey])(questions: List[Question])
+
+@import play.data.validation.ValidationError
+
+@showQuestion(text: String, option: String) = {
+  <p>
+    @errorField(form(option).errors)
+    @text
+    <input type="text" size="12" name="@option" value="@form(option).value" />
+  </p>
+}
+
+@errorField(errors: List[ValidationError]) = {
+  @if(!errors.isEmpty) {
+    <span style="color: red">
+        @for(e <- errors) {
+          @Messages(e.message, e.arguments: _*) <br />
+        }
+    </span>
+  }
+}
 
 @helper.form(action = routes.SurveyController.send, 'id -> "form") {
-  
-  @for((question,i) <- (form.get.getQuestions.zipWithIndex)) {
-    <p>@question.getText
-    <input type="text" size="12" name="question[@i].answer" /></p> 
+  @for((question,i) <- (questions.zipWithIndex)) {
+    @showQuestion(question.getText, "questions[" + i + "].answer")
   }
 
   <input type="submit" value="Send" />
-
 }

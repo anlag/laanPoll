@@ -1,11 +1,14 @@
 package models;
 
 import java.util.*;
+
+import javax.validation.Valid;
+
 import play.data.validation.Constraints.*;
 
 public class Survey {
-
   // declarations
+  @Valid
   private List<Question> questions;
 
   // default constructor
@@ -35,5 +38,4 @@ public class Survey {
   public List<Question> getQuestions() {
     return this.questions;
   }
-
 }
